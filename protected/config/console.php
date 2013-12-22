@@ -17,6 +17,7 @@ return array(
 			'username' => 'singeia',
 			'password' => 'singeia',
 			'charset' => 'utf8',
+                        'tablePrefix' => 'tbl_',
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',

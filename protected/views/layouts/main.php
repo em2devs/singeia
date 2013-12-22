@@ -29,11 +29,13 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>Yii::t('app','Home'), 'url'=>array('/site/index')),
+				array('label'=>Yii::t('app','About'), 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>Yii::t('app','Contact'), 'url'=>array('/site/contact')),
+                                array('label'=>Yii::t('app','User'), 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'default') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'admin') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'profilefield') === 0)  ? true : false),
+                                array('label'=>Yii::t('app','Rights'), 'url'=>array('/rights'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'assignment') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'authitem') === 0)  ? true : false),
+				array('label'=>Yii::t('app','Login'), 'url'=>array('/user/login'),'visible'=>Yii::app()->user->isGuest),
+                                array('label'=>Yii::t('app','Logout').' ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->
