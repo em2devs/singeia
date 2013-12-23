@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'SINGEIA',
-        'sourceLanguage'=>'pt_br',
+        'language'=>'pt_br',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
