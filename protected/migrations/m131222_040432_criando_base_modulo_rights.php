@@ -45,10 +45,10 @@ class m131222_040432_criando_base_modulo_rights extends CDbMigration
                 $this->addForeignKey('tbl_rights_auth_item_child_ibfk_1', 'tbl_rights_auth_item_child'  , 'parent'  , 'tbl_rights_auth_item', 'name', 'CASCADE', 'CASCADE');
                 $this->addForeignKey('tbl_rights_auth_item_child_ibfk_2', 'tbl_rights_auth_item_child'  , 'child'   , 'tbl_rights_auth_item', 'name', 'CASCADE', 'CASCADE');
                 
-                $this->insert('tbl_rights_auth_assignment'  , array('itemname'=>'Admin'     , 'userid'=>'1' , 'bizrule'=>NULL       , 'data'=>'N;'));
                 $this->insert('tbl_rights_auth_item'        , array('name'=>'Admin'         , 'type'=>2     , 'description'=>NULL   , 'bizrule'=>NULL   , 'data'=>'N;'));
                 $this->insert('tbl_rights_auth_item'        , array('name'=>'Authenticated' , 'type'=>2     , 'description'=>NULL   , 'bizrule'=>NULL   , 'data'=>'N;'));
                 $this->insert('tbl_rights_auth_item'        , array('name'=>'Guest'         , 'type'=>2     , 'description'=>NULL   , 'bizrule'=>NULL   , 'data'=>'N;'));
+                $this->insert('tbl_rights_auth_assignment'  , array('itemname'=>'Admin'     , 'userid'=>'1' , 'bizrule'=>NULL       , 'data'=>'N;'));
 	}
 
 	public function down()

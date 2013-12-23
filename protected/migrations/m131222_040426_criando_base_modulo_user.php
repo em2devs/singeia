@@ -55,12 +55,12 @@ class m131222_040426_criando_base_modulo_user extends CDbMigration
                 
                 $this->addForeignKey('user_profile_id', 'tbl_user_profiles', 'user_id', 'tbl_user', 'id', 'CASCADE', 'NO ACTION');
                 
+                $this->insert('tbl_user'                , array('id'=>1     , 'username'=>'admin'   , 'password'=>'21232f297a57a5a743894a0e4a801fc3', 'email'=>'webmaster@example.com'  , 'activkey'=>'9a24eff8c15a6a141ece27eb6947da0f', 'create_at'=>'2013-12-22 02:25:01', 'lastvisit_at'=>'2013-12-22 06:33:30', 'superuser'=>1, 'status'=>1));
+                $this->insert('tbl_user'                , array('id'=>2     , 'username'=>'demo'    , 'password'=>'fe01ce2a7fbac8fafaed7c982a04e229', 'email'=>'demo@example.com'       , 'activkey'=>'099f825543f7850cc038b90aaff39fac', 'create_at'=>'2013-12-22 02:25:01', 'lastvisit_at'=>'2013-12-22 05:54:51', 'superuser'=>0, 'status'=>1));
                 $this->insert('tbl_user_profiles_fields', array('id'=>1     , 'varname'=>'lastname' , 'title'=>'Last Name'  , 'field_type'=>'VARCHAR', 'field_size'=>'50', 'field_size_min'=>'3', 'required'=>1, 'match'=>'', 'range'=>'', 'error_message'=>'Incorrect Last Name (length between 3 and 50 characters).' , 'other_validator'=>'', 'default'=>'', 'widget'=>'', 'widgetparams'=>'', 'position'=>1, 'visible'=>3));
                 $this->insert('tbl_user_profiles_fields', array('id'=>2     , 'varname'=>'firstname', 'title'=>'First Name' , 'field_type'=>'VARCHAR', 'field_size'=>'50', 'field_size_min'=>'3', 'required'=>1, 'match'=>'', 'range'=>'', 'error_message'=>'Incorrect First Name (length between 3 and 50 characters).', 'other_validator'=>'', 'default'=>'', 'widget'=>'', 'widgetparams'=>'', 'position'=>0, 'visible'=>3));
                 $this->insert('tbl_user_profiles'       , array('user_id'=>1, 'lastname'=>'Admin'   , 'firstname'=>'Administrator'));
                 $this->insert('tbl_user_profiles'       , array('user_id'=>2, 'lastname'=>'Demo'    , 'firstname'=>'Demo'));
-                $this->insert('tbl_user'                , array('id'=>1     , 'username'=>'admin'   , 'password'=>'21232f297a57a5a743894a0e4a801fc3', 'email'=>'webmaster@example.com'  , 'activkey'=>'9a24eff8c15a6a141ece27eb6947da0f', 'create_at'=>'2013-12-22 02:25:01', 'lastvisit_at'=>'2013-12-22 06:33:30', 'superuser'=>1, 'status'=>1));
-                $this->insert('tbl_user'                , array('id'=>2     , 'username'=>'demo'    , 'password'=>'fe01ce2a7fbac8fafaed7c982a04e229', 'email'=>'demo@example.com'       , 'activkey'=>'099f825543f7850cc038b90aaff39fac', 'create_at'=>'2013-12-22 02:25:01', 'lastvisit_at'=>'2013-12-22 05:54:51', 'superuser'=>0, 'status'=>1));
         }
 
 	public function down()
