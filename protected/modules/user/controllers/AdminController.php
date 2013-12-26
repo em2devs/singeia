@@ -39,22 +39,22 @@ class AdminController extends Controller
 	public function actionAdmin()
 	{
 		$model=new User('search');
-        $model->unsetAttributes();  // clear any default values
-        if(isset($_GET['User']))
-            $model->attributes=$_GET['User'];
+                $model->unsetAttributes();  // clear any default values
+                if(isset($_GET['User']))
+                            $model->attributes=$_GET['User'];
 
-        $this->render('index',array(
-            'model'=>$model,
-        ));
-		/*$dataProvider=new CActiveDataProvider('User', array(
-			'pagination'=>array(
-				'pageSize'=>Yii::app()->controller->module->user_page_size,
-			),
-		));
+                $this->render('index',array(
+                    'model'=>$model,
+                ));
+                /*$dataProvider=new CActiveDataProvider('User', array(
+                        'pagination'=>array(
+                                'pageSize'=>Yii::app()->controller->module->user_page_size,
+                        ),
+                ));
 
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));//*/
+                $this->render('index',array(
+                        'dataProvider'=>$dataProvider,
+                ));//*/
 	}
 
 
@@ -155,17 +155,17 @@ class AdminController extends Controller
 	}
 	
 	/**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($validate)
-    {
-        if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+         * Performs the AJAX validation.
+         * @param CModel the model to be validated
+         */
+        protected function performAjaxValidation($validate)
         {
-            echo CActiveForm::validate($validate);
-            Yii::app()->end();
+            if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+            {
+                echo CActiveForm::validate($validate);
+                Yii::app()->end();
+            }
         }
-    }
 	
 	
 	/**

@@ -29,4 +29,5 @@ return array (
         'Fields with <span class="required">*</span> are required.' => 'Os campos com <span class="required"> * </span> são obrigatórios.',
         'Please enter the letters as they are shown in the image above.' => 'Por favor, digite as letras como mostrada na imagem.',
         'Letters are not case-sensitive.' => 'As letras não diferenciam de maiúsculas e minúsculas.',
+        'Operations'=>'Operações',
 );
