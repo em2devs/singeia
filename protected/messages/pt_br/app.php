@@ -28,6 +28,11 @@ return array (
         'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.'=>'Se você possui dúvidas comerciais ou outras questões gentileza preencher o formulário à seguir para entrar em contato. Obrigado.',
         'Fields with <span class="required">*</span> are required.' => 'Os campos com <span class="required"> * </span> são obrigatórios.',
         'Please enter the letters as they are shown in the image above.' => 'Por favor, digite as letras como mostrada na imagem.',
-        'Letters are not case-sensitive.' => 'As letras não diferenciam de maiúsculas e minúsculas.',
+        'Letters are not case-sensitive.' => 'As letras não diferenciam entre maiúsculas e minúsculas.',
         'Operations'=>'Operações',
+        'Name'=>'Nome',
+        'E-mail'=>'E-mail',
+        'Subject'=>'Assunto',
+        'Body'=>'Mensagem',
+        'Verification Code'=>'Código de Verificação',
 );
