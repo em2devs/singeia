@@ -32,7 +32,7 @@ class AlunoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','createGeral'),
+				'actions'=>array('create','update','createGeral', 'updateGeral'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,7 +60,6 @@ class AlunoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	 
 	public function actionCreateGeral() 
 	{
 		$Aluno  = new Aluno;
@@ -113,6 +112,35 @@ class AlunoController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+        public function actionUpdateGeral($id)
+	{
+                $Aluno=Aluno::model()->findByPk($id);
+                $Pessoa=Pessoa::model()->findByPk($id);
+                
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+                if(isset($_POST['Aluno']) && isset($_POST['Pessoa']))
+		{
+			$Pessoa->attributes = $_POST['Pessoa'];
+			$Aluno->attributes  = $_POST['Aluno'];
+			
+			$Aluno->cpf = $Pessoa->cpf;			
+			
+			if($Pessoa->save())
+			//if($Aluno->save())
+			{
+				$Aluno->save();
+				$this->redirect(array('view','id'=>$Aluno->cpf));
+			}
+		}
+                
+		$this->render('updateGeral',array(
+			'Aluno'=>$Aluno,
+			'Pessoa'=>$Pessoa,
+		));
+	}
+        
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);

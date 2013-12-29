@@ -11,8 +11,8 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<h1>Dados do Aluno</h1>
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<h1><?php echo Yii::t('app','Student Data'); ?></h1>
+	<p class="note"><?php echo Yii::t('app','Fields with <span class="required">*</span> are required.'); ?></p>
 
 	<?php echo $form->errorSummary($model); ?>
 

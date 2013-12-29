@@ -11,11 +11,11 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('app','Fields with <span class="required">*</span> are required.'); ?></p>
 
-	<h1>Cadastro do Aluno</h1>
+	<h1><?php echo Yii::t('app','Student Register'); ?></h1>
 	
-	<h2> Dados Pessoais </h2>
+	<h2><?php echo Yii::t('app','Personal Data'); ?></h2>
 
 	<div class="row">
 		<?php echo $form->labelEx($Pessoa,'cpf'); ?>
@@ -97,7 +97,7 @@
 
 
 
-	<h2>Dados do Aluno</h2>
+	<h2><?php echo Yii::t('app','Student Data'); ?></h2>
 
 	<?php //echo $form->errorSummary($model); ?>
 

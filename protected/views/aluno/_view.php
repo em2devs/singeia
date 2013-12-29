@@ -33,8 +33,7 @@
 	<?php echo CHtml::encode($data->forma_ingresso); ?>
 	<br />
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('escolaridade')); ?>:</b>
+        <b><?php echo CHtml::encode($data->getAttributeLabel('escolaridade')); ?>:</b>
 	<?php echo CHtml::encode($data->escolaridade); ?>
 	<br />
 
@@ -61,7 +60,5 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('conclusao')); ?>:</b>
 	<?php echo CHtml::encode($data->conclusao); ?>
 	<br />
-
-	*/ ?>
 
 </div>

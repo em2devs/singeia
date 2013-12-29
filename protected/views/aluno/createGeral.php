@@ -3,13 +3,13 @@
 /* @var $model Aluno */
 
 $this->breadcrumbs=array(
-	'Alunos'=>array('index'),
-	'Create',
+	Yii::t('app','Students')=>array('index'),
+	Yii::t('app','Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Aluno', 'url'=>array('index')),
-	array('label'=>'Manage Aluno', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','List Students'), 'url'=>array('index')),
+	array('label'=>Yii::t('app','Manage Students'), 'url'=>array('admin')),
 );
 ?>
 

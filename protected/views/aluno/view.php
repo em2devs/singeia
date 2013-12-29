@@ -3,20 +3,20 @@
 /* @var $model Aluno */
 
 $this->breadcrumbs=array(
-	'Alunos'=>array('index'),
+	Yii::t('app','Students')=>array('index'),
 	$model->cpf,
 );
 
 $this->menu=array(
-	array('label'=>'List Aluno', 'url'=>array('index')),
-	array('label'=>'Create Aluno', 'url'=>array('create')),
-	array('label'=>'Update Aluno', 'url'=>array('update', 'id'=>$model->cpf)),
-	array('label'=>'Delete Aluno', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cpf),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Aluno', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','List Students'), 'url'=>array('index')),
+	array('label'=>Yii::t('app','Create Student'), 'url'=>array('createGeral')),
+	array('label'=>Yii::t('app','Update Student'), 'url'=>array('updateGeral', 'id'=>$model->cpf)),
+	array('label'=>Yii::t('app','Delete Student'), 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cpf),'confirm'=>Yii::t('app','Are you sure you want to delete this item?'))),
+	array('label'=>Yii::t('app','Manage Students'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Aluno #<?php echo $model->cpf; ?></h1>
+<h1><?php echo Yii::t('app','View Student') . ' #' . $model->cpf; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

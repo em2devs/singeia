@@ -3,12 +3,12 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Alunos',
+	Yii::t('app','Students'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Aluno', 'url'=>array('create')),
-	array('label'=>'Manage Aluno', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','Create Student'), 'url'=>array('createGeral')),
+	array('label'=>Yii::t('app','Manage Students'), 'url'=>array('admin')),
 );
 ?>
 

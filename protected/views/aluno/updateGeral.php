@@ -4,18 +4,18 @@
 
 $this->breadcrumbs=array(
 	Yii::t('app','Students')=>array('index'),
-	$model->cpf=>array('view','id'=>$model->cpf),
+	$Aluno->cpf=>array('view','id'=>$Aluno->cpf),
 	Yii::t('app','Update'),
 );
 
 $this->menu=array(
 	array('label'=>Yii::t('app','List Students'), 'url'=>array('index')),
 	array('label'=>Yii::t('app','Create Student'), 'url'=>array('createGeral')),
-	array('label'=>Yii::t('app','View Student'), 'url'=>array('view', 'id'=>$model->cpf)),
+	array('label'=>Yii::t('app','View Student'), 'url'=>array('view', 'id'=>$Aluno->cpf)),
 	array('label'=>Yii::t('app','Manage Aluno'), 'url'=>array('admin')),
 );
 ?>
 
-<h1><?php echo Yii::t('app','Update Student') . ' ' . $model->cpf; ?></h1>
+<h1><?php echo Yii::t('app','Update Student') . ' ' . $Aluno->cpf; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_formGeral', array('Aluno'=>$Aluno,'Pessoa'=>$Pessoa)); ?>
