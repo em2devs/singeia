@@ -1,5 +1,6 @@
 <?php
 /* @var $this AlunoController */
+/* @var $pessoa Pessoa */
 /* @var $model Aluno */
 
 $this->breadcrumbs=array(
@@ -13,4 +14,4 @@ $this->menu=array(
 );
 ?>
 
-<?php echo $this->renderPartial('_formGeral', array('Aluno'=>$Aluno,'Pessoa'=>$Pessoa)); ?>
+<?php echo $this->renderPartial('_formGeral', array('model'=>$model,'pessoa'=>$pessoa)); ?>

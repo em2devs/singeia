@@ -62,28 +62,28 @@ class AlunoController extends Controller
 	 */
 	public function actionCreateGeral() 
 	{
-		$Aluno  = new Aluno;
-		$Pessoa = new Pessoa;
-		
-		if(isset($_POST['Aluno'])  &&
-		   isset($_POST['Pessoa']))
+		$model  = new Aluno;
+		$pessoa = new Pessoa;
+                
+                $this->performAjaxValidation(array($model,$pessoa));
+                
+		if(isset($_POST['Aluno']) && isset($_POST['Pessoa']))
 		{
-			$Pessoa->attributes = $_POST['Pessoa'];
-			$Aluno->attributes  = $_POST['Aluno'];
+			$pessoa->attributes = $_POST['Pessoa'];
+			$model->attributes  = $_POST['Aluno'];
 			
-			$Aluno->cpf = $Pessoa->cpf;			
+			$model->cpf = $pessoa->cpf;			
 			
-			if($Pessoa->save())
-			//if($Aluno->save())
+			if($pessoa->save())
 			{
-				$Aluno->save();
-				$this->redirect(array('view','id'=>$Aluno->cpf));
+				if($model->save())
+                                        $this->redirect(array('view','id'=>$model->cpf));
 			}
 		}
 
 		$this->render('createGeral',array(
-			'Aluno'=>$Aluno,
-			'Pessoa'=>$Pessoa,
+			'model'=>$model,
+			'pessoa'=>$pessoa,
 		));
 	}
 	 
@@ -114,30 +114,28 @@ class AlunoController extends Controller
 	 */
         public function actionUpdateGeral($id)
 	{
-                $Aluno=Aluno::model()->findByPk($id);
-                $Pessoa=Pessoa::model()->findByPk($id);
+                $model=$this->loadModel($id);
+                $pessoa=Pessoa::model()->findByPk($id);
                 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
+		$this->performAjaxValidation(array($model,$pessoa));
+                
                 if(isset($_POST['Aluno']) && isset($_POST['Pessoa']))
 		{
-			$Pessoa->attributes = $_POST['Pessoa'];
-			$Aluno->attributes  = $_POST['Aluno'];
+			$pessoa->attributes = $_POST['Pessoa'];
+			$model->attributes  = $_POST['Aluno'];
 			
-			$Aluno->cpf = $Pessoa->cpf;			
+			$model->cpf = $pessoa->cpf;			
 			
-			if($Pessoa->save())
-			//if($Aluno->save())
+			if($pessoa->save())
 			{
-				$Aluno->save();
-				$this->redirect(array('view','id'=>$Aluno->cpf));
+				if($model->save())
+                                        $this->redirect(array('view','id'=>$model->cpf));
 			}
 		}
                 
 		$this->render('updateGeral',array(
-			'Aluno'=>$Aluno,
-			'Pessoa'=>$Pessoa,
+			'model'=>$model,
+			'pessoa'=>$pessoa,
 		));
 	}
         
