@@ -40,7 +40,7 @@ class Disciplina extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_disciplina, nome_disciplina, sigla_disciplina, descricao_disciplina', 'required'),
+			array('cod_disciplina, nome_disciplina, sigla_disciplina', 'required'),
 			array('cod_disciplina', 'numerical', 'integerOnly'=>true),
 			array('nome_disciplina', 'length', 'max'=>45),
 			array('sigla_disciplina', 'length', 'max'=>15),

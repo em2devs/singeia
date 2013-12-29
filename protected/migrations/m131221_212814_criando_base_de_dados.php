@@ -107,7 +107,7 @@ class m131221_212814_criando_base_de_dados extends CDbMigration
                         'cod_disciplina'            => 'MEDIUMINT(6) UNSIGNED NOT NULL',
                         'nome_disciplina'           => 'VARCHAR(45) NOT NULL',
                         'sigla_disciplina'          => 'VARCHAR(15) NOT NULL',
-                        'descricao_disciplina'      => 'TEXT NOT NULL',
+                        'descricao_disciplina'      => 'TEXT NULL',
                         'PRIMARY KEY (`cod_disciplina`)'
                 ),'ENGINE=InnoDB DEFAULT CHARSET=utf8');
                 
