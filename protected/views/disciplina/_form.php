@@ -39,12 +39,6 @@
 		<?php echo $form->error($model,'descricao_disciplina'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'carga_horaria_disciplina'); ?>
-		<?php echo $form->textField($model,'carga_horaria_disciplina'); ?>
-		<?php echo $form->error($model,'carga_horaria_disciplina'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('app','Create') : Yii::t('app','Save')); ?>
 	</div>

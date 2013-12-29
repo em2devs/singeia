@@ -8,7 +8,6 @@
  * @property string $nome_disciplina
  * @property string $sigla_disciplina
  * @property string $descricao_disciplina
- * @property integer $carga_horaria_disciplina
  *
  * The followings are the available model relations:
  * @property VinculoDisciplina[] $vinculoDisciplinas
@@ -41,13 +40,13 @@ class Disciplina extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cod_disciplina, nome_disciplina, sigla_disciplina, descricao_disciplina, carga_horaria_disciplina', 'required'),
-			array('cod_disciplina, carga_horaria_disciplina', 'numerical', 'integerOnly'=>true),
+			array('cod_disciplina, nome_disciplina, sigla_disciplina, descricao_disciplina', 'required'),
+			array('cod_disciplina', 'numerical', 'integerOnly'=>true),
 			array('nome_disciplina', 'length', 'max'=>45),
 			array('sigla_disciplina', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('cod_disciplina, nome_disciplina, sigla_disciplina, descricao_disciplina, carga_horaria_disciplina', 'safe', 'on'=>'search'),
+			array('cod_disciplina, nome_disciplina, sigla_disciplina, descricao_disciplina', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,7 +72,6 @@ class Disciplina extends CActiveRecord
 			'nome_disciplina' => 'Nome',
 			'sigla_disciplina' => 'Sigla',
 			'descricao_disciplina' => 'Descrição',
-			'carga_horaria_disciplina' => 'Carga Horária',
 		);
 	}
 
@@ -92,7 +90,6 @@ class Disciplina extends CActiveRecord
 		$criteria->compare('nome_disciplina',$this->nome_disciplina,true);
 		$criteria->compare('sigla_disciplina',$this->sigla_disciplina,true);
 		$criteria->compare('descricao_disciplina',$this->descricao_disciplina,true);
-		$criteria->compare('carga_horaria_disciplina',$this->carga_horaria_disciplina);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

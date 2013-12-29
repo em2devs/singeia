@@ -31,11 +31,6 @@
 		<?php echo $form->textArea($model,'descricao_disciplina',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'carga_horaria_disciplina'); ?>
-		<?php echo $form->textField($model,'carga_horaria_disciplina'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

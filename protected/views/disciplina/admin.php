@@ -48,7 +48,6 @@ $('.search-form form').submit(function(){
 		'nome_disciplina',
 		'sigla_disciplina',
 		'descricao_disciplina',
-		'carga_horaria_disciplina',
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -21,9 +21,4 @@
 	<?php echo CHtml::encode($data->descricao_disciplina); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('carga_horaria_disciplina')); ?>:</b>
-	<?php echo CHtml::encode($data->carga_horaria_disciplina); ?>
-	<br />
-
-
 </div>
