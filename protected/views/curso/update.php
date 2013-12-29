@@ -3,19 +3,19 @@
 /* @var $model Curso */
 
 $this->breadcrumbs=array(
-	'Cursos'=>array('index'),
+	Yii::t('app','Courses')=>array('index'),
 	$model->cod_curso=>array('view','id'=>$model->cod_curso),
-	'Update',
+	Yii::t('app','Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Curso', 'url'=>array('index')),
-	array('label'=>'Create Curso', 'url'=>array('create')),
-	array('label'=>'View Curso', 'url'=>array('view', 'id'=>$model->cod_curso)),
-	array('label'=>'Manage Curso', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','List Courses'), 'url'=>array('index')),
+	array('label'=>Yii::t('app','Create Course'), 'url'=>array('create')),
+	array('label'=>Yii::t('app','View Courses'), 'url'=>array('view', 'id'=>$model->cod_curso)),
+	array('label'=>Yii::t('app','Manage Courses'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Curso <?php echo $model->cod_curso; ?></h1>
+<h1><?php echo Yii::t('app','Update Course') . $model->cod_curso; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

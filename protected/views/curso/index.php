@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Cursos',
+	Yii::t('app','Courses'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Curso', 'url'=>array('create')),
-	array('label'=>'Manage Curso', 'url'=>array('admin')),
+	array('label'=>Yii::t('app','Create Course'), 'url'=>array('create')),
+	array('label'=>Yii::t('app','Manage Courses'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Cursos</h1>
+<h1><?php echo Yii::t('app','Courses'); ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

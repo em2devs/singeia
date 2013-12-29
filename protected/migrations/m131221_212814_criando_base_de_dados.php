@@ -108,7 +108,6 @@ class m131221_212814_criando_base_de_dados extends CDbMigration
                         'nome_disciplina'           => 'VARCHAR(45) NOT NULL',
                         'sigla_disciplina'          => 'VARCHAR(15) NOT NULL',
                         'descricao_disciplina'      => 'TEXT NOT NULL',
-                        'carga_horaria_disciplina'  => 'SMALLINT(3) UNSIGNED NOT NULL',
                         'PRIMARY KEY (`cod_disciplina`)'
                 ),'ENGINE=InnoDB DEFAULT CHARSET=utf8');
                 
@@ -127,10 +126,11 @@ class m131221_212814_criando_base_de_dados extends CDbMigration
                         'cod_vinculo_disciplina'    => 'MEDIUMINT(6) UNSIGNED NOT NULL',
                         'cod_disciplina'            => 'MEDIUMINT(6) UNSIGNED NOT NULL',
                         'cod_curso'                 => 'SMALLINT(3) UNSIGNED NOT NULL',
-                        'registro_funcional'    => 'VARCHAR(10) NOT NULL',
+                        'registro_funcional'        => 'VARCHAR(10) NOT NULL',
                         'periodo'                   => 'VARCHAR(10) NOT NULL',
                         'semestre'                  => 'TINYINT(1) UNSIGNED NOT NULL',
                         'ano'                       => 'YEAR NOT NULL',
+                        'carga_horaria'             => 'SMALLINT(3) UNSIGNED NOT NULL',
                         'PRIMARY KEY (`cod_vinculo_disciplina`, `cod_disciplina`, `cod_curso`, `registro_funcional`)'
                 ),'ENGINE=InnoDB DEFAULT CHARSET=utf8');
                 

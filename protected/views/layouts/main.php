@@ -32,6 +32,8 @@
 				array('label'=>Yii::t('app','Home'), 'url'=>array('/site/index')),
 				array('label'=>Yii::t('app','About'), 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>Yii::t('app','Contact'), 'url'=>array('/site/contact')),
+                                array('label'=>Yii::t('app','Subjects'), 'url'=>array('/disciplina'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'disciplina') === 0)  ? true : false),
+                                array('label'=>Yii::t('app','Courses'), 'url'=>array('/curso'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'curso') === 0)  ? true : false),
                                 array('label'=>Yii::t('app','Users'), 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'default') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'admin') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'profilefield') === 0)  ? true : false),
                                 array('label'=>Yii::t('app','Rights'), 'url'=>array('/rights'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'assignment') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'authitem') === 0)  ? true : false),
 				array('label'=>Yii::t('app','Login'), 'url'=>array('/user/login'),'visible'=>Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'login') === 0)  ? true : false),
