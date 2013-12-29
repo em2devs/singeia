@@ -32,7 +32,7 @@ class AlunoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','createGeral'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,6 +60,35 @@ class AlunoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+	 
+	public function actionCreateGeral() 
+	{
+		$Aluno  = new Aluno;
+		$Pessoa = new Pessoa;
+		
+		if(isset($_POST['Aluno'])  &&
+		   isset($_POST['Pessoa']))
+		{
+			$Pessoa->attributes = $_POST['Pessoa'];
+			$Aluno->attributes  = $_POST['Aluno'];
+			
+			$Aluno->cpf = $Pessoa->cpf;			
+			
+			if($Pessoa->save())
+			//if($Aluno->save())
+			{
+				$Aluno->save();
+				$this->redirect(array('view','id'=>$Aluno->cpf));
+			}
+		}
+
+		$this->render('createGeral',array(
+			'Aluno'=>$Aluno,
+			'Pessoa'=>$Pessoa,
+		));
+	}
+	 
+	 
 	public function actionCreate()
 	{
 		$model=new Aluno;
