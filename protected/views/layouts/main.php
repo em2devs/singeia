@@ -31,7 +31,7 @@
 			'items'=>array(
 				array('label'=>Yii::t('app','Home'), 'url'=>array('/site/index')),
 				array('label'=>Yii::t('app','About'), 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>Yii::t('app','Contact'), 'url'=>array('/site/contact')),
+				array('label'=>Yii::t('app','Contact'), 'url'=>array('/site/contact'), 'visible'=>!Yii::app()->user->isGuest),
                                 array('label'=>Yii::t('app','Students'), 'url'=>array('/aluno'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'aluno') === 0)  ? true : false),
                                 array('label'=>Yii::t('app','Subjects'), 'url'=>array('/disciplina'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'disciplina') === 0)  ? true : false),
                                 array('label'=>Yii::t('app','Courses'), 'url'=>array('/curso'), 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'curso') === 0)  ? true : false),

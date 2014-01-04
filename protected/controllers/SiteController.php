@@ -60,6 +60,13 @@ class SiteController extends Controller
 	public function actionContact()
 	{
 		$model=new ContactForm;
+                
+                $userProfile=Profile::model()->findByPk(Yii::app()->user->id);
+                $user=User::model()->findByPk(Yii::app()->user->id);
+                
+                $model->name = $userProfile->firstname.' '.$userProfile->lastname;
+                $model->email = $user->email;
+                
 		if(isset($_POST['ContactForm']))
 		{
 			$model->attributes=$_POST['ContactForm'];
@@ -73,7 +80,7 @@ class SiteController extends Controller
 					"Content-Type: text/plain; charset=UTF-8";
 
 				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact',Yii::t('app','Thank you for contacting us. We will respond to you as soon as possible.'));
 				$this->refresh();
 			}
 		}

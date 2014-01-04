@@ -39,13 +39,13 @@ $this->breadcrumbs=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
+		<?php echo $form->textField($model,'name',array('readonly' => 'true')); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('readonly' => 'true')); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 

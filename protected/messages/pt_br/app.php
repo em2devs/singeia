@@ -26,6 +26,7 @@ return array (
         'Login'=>'Login',
         'Logout'=>'Logout',
         'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.'=>'Se você possui dúvidas comerciais ou outras questões gentileza preencher o formulário à seguir para entrar em contato. Obrigado.',
+        'Thank you for contacting us. We will respond to you as soon as possible.'=>'Obrigado pelo contato. Responderemos o mais breve possível.',
         'Fields with <span class="required">*</span> are required.' => 'Os campos com <span class="required"> * </span> são obrigatórios.',
         'Please enter the letters as they are shown in the image above.' => 'Por favor, digite as letras como mostrada na imagem.',
         'Letters are not case-sensitive.' => 'As letras não diferenciam entre maiúsculas e minúsculas.',
