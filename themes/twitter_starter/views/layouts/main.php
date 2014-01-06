@@ -76,15 +76,13 @@
                                                         array('label'=>Yii::t('app','Courses')  , 'url'=>array('/curso')        , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'curso') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Users')    , 'url'=>array('/user')         , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'default') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'admin') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'profilefield') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Rights')   , 'url'=>array('/rights')       , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'assignment') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'authitem') === 0)  ? true : false),
-                                                        array('label'=>Yii::t('app','Login')    , 'url'=>array('/user/login')   , 'visible'=> Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'login') === 0)  ? true : false),
-                                                        array('label'=>Yii::t('app','Logout')   , 'url'=>array('/user/logout')  , 'visible'=>!Yii::app()->user->isGuest)
                                                 ),
 					)); ?>
                                         
                                     <?php if(!Yii::app()->user->isGuest) { ?>
-                                            <p class="navbar-text pull-right">Logged in as <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=user/profile"><?php echo Yii::app()->user->name; ?></a></p>
+                                            <p class="navbar-text pull-right"><?php echo Yii::t('app','Logged In as').' '; ?><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=user/profile"><?php echo Yii::app()->user->name; ?></a> | <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=user/logout"><?php echo Yii::t('app','Logout'); ?></a></p>
                                     <?php } else { ?>
-                                            <p class="navbar-text pull-right">Logged Off</p>
+                                            <p class="navbar-text pull-right"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php?r=user/login"><?php echo Yii::t('app','Login'); ?></a></p>
                                     <?php } ?>
 				</div><!--/.nav-collapse -->
 			</div>
