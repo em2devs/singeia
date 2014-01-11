@@ -182,6 +182,79 @@
 		<?php echo $form->error($model,'conclusao'); ?>
 	</div>
 
+	<h2><?php echo Yii::t('app','Endereço'); ?></h2>
+		<?php echo $form->errorSummary($endereco); ?>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'cep'); ?>
+		<?php echo $form->textField($endereco,'cep',array('size'=>8,'maxlength'=>8)); ?>
+		<?php echo $form->error($endereco,'cep'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'tipo_endereco'); ?>
+		<?php echo $form->textField($endereco,'tipo_endereco',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->error($endereco,'tipo_endereco'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'logradouro'); ?>
+		<?php echo $form->textField($endereco,'logradouro',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($endereco,'logradouro'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'numero'); ?>
+		<?php echo $form->textField($endereco,'numero'); ?>
+		<?php echo $form->error($endereco,'numero'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'complemento'); ?>
+		<?php echo $form->textField($endereco,'complemento',array('size'=>25,'maxlength'=>25)); ?>
+		<?php echo $form->error($endereco,'complemento'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'bairro'); ?>
+		<?php echo $form->textField($endereco,'bairro',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($endereco,'bairro'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'cidade'); ?>
+		<?php echo $form->textField($endereco,'cidade',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($endereco,'cidade'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($endereco,'uf'); ?>
+		<?php echo $form->textField($endereco,'uf',array('size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->error($endereco,'uf'); ?>
+	</div>
+	
+	<h2><?php echo Yii::t('app','Telefone'); ?></h2>
+	<?php echo $form->errorSummary($telefone); ?>
+
+	<div class="row">
+		<?php echo $form->labelEx($telefone,'cod_area_telefone'); ?>
+		<?php echo $form->textField($telefone,'cod_area_telefone'); ?>
+		<?php echo $form->error($telefone,'cod_area_telefone'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($telefone,'numero_telefone'); ?>
+		<?php echo $form->textField($telefone,'numero_telefone',array('size'=>9,'maxlength'=>9)); ?>
+		<?php echo $form->error($telefone,'numero_telefone'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($telefone,'tipo_telefone'); ?>
+		<?php echo $form->textField($telefone,'tipo_telefone',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->error($telefone,'tipo_telefone'); ?>
+	</div>
+	
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

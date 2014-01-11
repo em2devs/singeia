@@ -14,4 +14,5 @@ $this->menu=array(
 );
 ?>
 
-<?php echo $this->renderPartial('_formGeral', array('model'=>$model,'pessoa'=>$pessoa)); ?>
+<?php echo $this->renderPartial('_formGeral', array('model'=>$model,'pessoa'=>$pessoa,
+													'endereco'=>$endereco,'telefone'=>$telefone,)); ?>
