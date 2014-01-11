@@ -19,4 +19,5 @@ $this->menu=array(
 
 <h1><?php echo Yii::t('app','Update Student') . ' ' . $model->cpf; ?></h1>
 
-<?php echo $this->renderPartial('_formGeral', array('model'=>$model,'pessoa'=>$pessoa)); ?>
+<?php echo $this->renderPartial('_formGeral', array('model'=>$model,'pessoa'=>$pessoa,
+													'endereco'=>$endereco,'telefone'=>$telefone)); ?>

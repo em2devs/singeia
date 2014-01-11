@@ -121,30 +121,39 @@ class AlunoController extends Controller
 	 * @param integer $id the ID of the model to be updated
 	 */
         public function actionUpdateGeral($id)
-	{
-                $model=$this->loadModel($id);
-                $pessoa=Pessoa::model()->findByPk($id);
-                
-		$this->performAjaxValidation(array($model,$pessoa));
-                
-                if(isset($_POST['Aluno']) && isset($_POST['Pessoa']))
 		{
-			$pessoa->attributes = $_POST['Pessoa'];
-			$model->attributes  = $_POST['Aluno'];
-			
-			$model->cpf = $pessoa->cpf;			
-			
-			if($pessoa->save())
+			$model = $this->loadModel($id);
+            $pessoa = Pessoa::model()->findByPk($id);
+			$endereco = Endereco::model()->findByPk($id);
+			$telefone = Telefone::model()->findByPk($id);
+                
+			$this->performAjaxValidation(array($model,$pessoa,$endereco,$telefone));
+                
+            if(isset($_POST['Aluno']) && isset($_POST['Pessoa']) 
+				&& isset($_POST['Endereco']) && isset($_POST['Telefone']))
 			{
-				if($model->save())
-                                        $this->redirect(array('view','id'=>$model->cpf));
-			}
+				$pessoa->attributes = $_POST['Pessoa'];
+				$model->attributes  = $_POST['Aluno'];
+				$endereco->attributes  = $_POST['Endereco'];
+				$telefone->attributes  = $_POST['Telefone'];
+				
+				$model->cpf = $pessoa->cpf;			
+				$endereco->cpf = $pessoa->cpf;
+				$telefone->cpf = $pessoa->cpf;			
+			
+				if($pessoa->save())
+				{
+					if($model->save() && $endereco->save() && $telefone->save())
+						$this->redirect(array('view','id'=>$model->cpf));
+				}
 		}
                 
-		$this->render('updateGeral',array(
-			'model'=>$model,
-			'pessoa'=>$pessoa,
-		));
+			$this->render('updateGeral',array(
+				'model'=>$model,
+				'pessoa'=>$pessoa,
+				'endereco'=>$endereco,
+				'telefone'=>$telefone,
+			));
 	}
         
 	public function actionUpdate($id)
