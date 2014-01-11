@@ -32,7 +32,7 @@ class ProfessorController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','createGeral','updateGeral'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -79,6 +79,78 @@ class ProfessorController extends Controller
 		));
 	}
 
+	public function actionUpdateGeral($id)
+	{
+			$model = $this->loadModel($id);
+            $pessoa = Pessoa::model()->findByPk($id);
+			$endereco = Endereco::model()->findByPk($id);
+			$telefone = Telefone::model()->findByPk($id);
+                
+			$this->performAjaxValidation(array($model,$pessoa,$endereco,$telefone));
+                
+            if(isset($_POST['Professor']) && isset($_POST['Pessoa']) 
+				&& isset($_POST['Endereco']) && isset($_POST['Telefone']))
+			{
+				$pessoa->attributes = $_POST['Pessoa'];
+				$model->attributes  = $_POST['Professor'];
+				$endereco->attributes  = $_POST['Endereco'];
+				$telefone->attributes  = $_POST['Telefone'];
+				
+				$model->cpf = $pessoa->cpf;			
+				$endereco->cpf = $pessoa->cpf;
+				$telefone->cpf = $pessoa->cpf;			
+			
+				if($pessoa->save())
+				{
+					if($model->save() && $endereco->save() && $telefone->save())
+						$this->redirect(array('view','id'=>$model->cpf));
+				}
+		}
+                
+			$this->render('updateGeral',array(
+				'model'=>$model,
+				'pessoa'=>$pessoa,
+				'endereco'=>$endereco,
+				'telefone'=>$telefone,
+			));
+	}
+	
+	public function actionCreateGeral() 
+	{
+		$model  = new Professor;
+		$pessoa = new Pessoa;
+		$endereco = new Endereco;
+		$telefone = new Telefone;
+                
+         $this->performAjaxValidation(array($model,$pessoa,$endereco,$telefone));
+                
+		if(isset($_POST['Professor']) && isset($_POST['Pessoa']) && isset($_POST['Endereco']) && isset($_POST['Telefone']))
+		{
+			$pessoa->attributes = $_POST['Pessoa'];
+			$model->attributes  = $_POST['Professor'];
+			$endereco->attributes = $_POST['Endereco'];
+			$telefone->attributes   = $_POST['Telefone'];
+			
+			$model->cpf = $pessoa->cpf;			
+			$endereco->cpf = $pessoa->cpf;
+			$telefone->cpf = $pessoa->cpf;
+			
+			if($pessoa->save())
+			{
+				if($model->save() && $endereco->save() && $telefone->save())
+					$this->redirect(array('view','id'=>$model->cpf));
+			}
+		}
+
+		$this->render('createGeral',array(
+			'model'=>$model,
+			'pessoa'=>$pessoa,
+			'endereco'=>$endereco,
+			'telefone'=>$telefone,
+		));
+	}
+	 
+	
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

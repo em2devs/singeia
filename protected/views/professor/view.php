@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Professor', 'url'=>array('index')),
 	array('label'=>'Create Professor', 'url'=>array('create')),
-	array('label'=>'Update Professor', 'url'=>array('update', 'id'=>$model->cpf)),
+	array('label'=>'Update Professor', 'url'=>array('updateGeral', 'id'=>$model->cpf)),
 	array('label'=>'Delete Professor', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cpf),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Professor', 'url'=>array('admin')),
 );
