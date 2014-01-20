@@ -72,4 +72,13 @@ return array (
         'Student Register'=>'Cadastro de Aluno',
         'Personal Data'=>'Dados Pessoais',
         'Student Data'=>'Dados do Aluno',
+        'Professors'=>'Professores',
+        'View Professor'=>'Visualizar Professor',
+        'List Professors'=>'Listar Professores',
+	'Create Professor'=>'Criar Professor',
+	'Update Professor'=>'Atualizar Professor',
+	'Delete Professor'=>'Deletar Professor',
+	'Manage Professors'=>'Gerenciar Professores',
+        'Professor Register'=>'Cadastro de Professor',
+        'Professor Data'=>'Dados do Professor',
 );

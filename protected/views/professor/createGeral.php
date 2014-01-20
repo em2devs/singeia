@@ -3,13 +3,13 @@
 /* @var $model Professor */
 
 $this->breadcrumbs=array(
-	'Professors'=>array('index'),
-	'Create',
+	Yii::t('app', 'Professors')=>array('index'),
+	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Professor', 'url'=>array('index')),
-	array('label'=>'Manage Professor', 'url'=>array('admin')),
+	array('label'=>Yii::t('app', 'List Professors'), 'url'=>array('index')),
+	array('label'=>Yii::t('app', 'Manage Professors'), 'url'=>array('admin')),
 );
 ?>
 

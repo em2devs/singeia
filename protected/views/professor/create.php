@@ -3,16 +3,16 @@
 /* @var $model Professor */
 
 $this->breadcrumbs=array(
-	'Professors'=>array('index'),
-	'Create',
+	Yii::t('app', 'Professors')=>array('index'),
+	Yii::t('app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Professor', 'url'=>array('index')),
-	array('label'=>'Manage Professor', 'url'=>array('admin')),
+	array('label'=>Yii::t('app', 'List Professors'), 'url'=>array('index')),
+	array('label'=>Yii::t('app', 'Manage Professors'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Professor</h1>
+<h1><?php echo Yii::t('app', 'Create Professor'); ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

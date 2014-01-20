@@ -3,16 +3,16 @@
 /* @var $model Professor */
 
 $this->breadcrumbs=array(
-	'Professors'=>array('index'),
+	Yii::t('app', 'Professors')=>array('index'),
 	$model->cpf=>array('view','id'=>$model->cpf),
-	'Update',
+	Yii::t('app', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Professor', 'url'=>array('index')),
-	array('label'=>'Create Professor', 'url'=>array('create')),
-	array('label'=>'View Professor', 'url'=>array('view', 'id'=>$model->cpf)),
-	array('label'=>'Manage Professor', 'url'=>array('admin')),
+	array('label'=>Yii::t('app', 'List Professor')  , 'url'=>array('index')),
+	array('label'=>Yii::t('app', 'Create Professor'), 'url'=>array('createGeral')),
+	array('label'=>Yii::t('app', 'View Professor')  , 'url'=>array('view', 'id'=>$model->cpf)),
+	array('label'=>Yii::t('app', 'Manage Professor'), 'url'=>array('admin')),
 );
 ?>
 

@@ -11,8 +11,10 @@
 	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('app','Fields with <span class="required">*</span> are required.'); ?></p>
 
+	<h1><?php echo Yii::t('app','Professor Register'); ?></h1>
+        
 	<h2><?php echo Yii::t('app','Personal Data'); ?></h2>
         
         <?php echo $form->errorSummary($pessoa); ?>
