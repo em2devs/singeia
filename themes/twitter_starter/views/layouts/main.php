@@ -6,6 +6,7 @@
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap.css' )
 		->registerCssFile( Yii::app()->theme->baseUrl . '/css/bootstrap-responsive.css' )
 		// use it when you need it!
+                /*
 		->registerCoreScript( 'jquery' )
 		->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-transition.js', CClientScript::POS_END )
 		->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-alert.js', CClientScript::POS_END )
@@ -19,6 +20,7 @@
 		->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-collapse.js', CClientScript::POS_END )
 		->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-carousel.js', CClientScript::POS_END )
 		->registerScriptFile( Yii::app()->theme->baseUrl . '/js/bootstrap-typeahead.js', CClientScript::POS_END )
+                 */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,14 +71,16 @@
 						'htmlOptions' => array( 'class' => 'nav' ),
 						'activeCssClass'	=> 'active',
 						'items'=>array(
-                                                        array('label'=>Yii::t('app','About')      , 'url'=>array('/site/page'     , 'view'=>'about')),
-                                                        array('label'=>Yii::t('app','Contact')    , 'url'=>array('/site/contact') , 'visible'=>!Yii::app()->user->isGuest),
                                                         array('label'=>Yii::t('app','Professors') , 'url'=>array('/professor')    , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'professor') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Students')   , 'url'=>array('/aluno')        , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'aluno') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Subjects')   , 'url'=>array('/disciplina')   , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'disciplina') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Courses')    , 'url'=>array('/curso')        , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'curso') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Users')      , 'url'=>array('/user')         , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'default') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'admin') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'profilefield') === 0)  ? true : false),
                                                         array('label'=>Yii::t('app','Rights')     , 'url'=>array('/rights')       , 'visible'=>!Yii::app()->user->isGuest, 'active'=> (strcasecmp(Yii::app()->controller->id, 'assignment') === 0)  ? true : (strcasecmp(Yii::app()->controller->id, 'authitem') === 0)  ? true : false),
+                                                        array('label'=>Yii::t('app','Contact')    , 'url'=>array('/site/contact') , 'visible'=>!Yii::app()->user->isGuest),    
+                                                        array('label'=>Yii::t('app','About')      , 'url'=>array('/site/page'     , 'view'=>'about'), 'visible'=>!Yii::app()->user->isGuest),
+                                                        
+                                                        
                                                 ),
 					)); ?>
                                         

@@ -20,8 +20,8 @@ class User extends CActiveRecord
 	 * @var integer $lastvisit
 	 * @var integer $superuser
 	 * @var integer $status
-     * @var timestamp $create_at
-     * @var timestamp $lastvisit_at
+         * @var timestamp $create_at
+         * @var timestamp $lastvisit_at
 	 */
 
 	/**
@@ -57,9 +57,9 @@ class User extends CActiveRecord
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
 			array('status', 'in', 'range'=>array(self::STATUS_NOACTIVE,self::STATUS_ACTIVE,self::STATUS_BANNED)),
 			array('superuser', 'in', 'range'=>array(0,1)),
-            array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
-            array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
-			array('username, email, superuser, status', 'required'),
+                        array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
+                        array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
+			array('username, password, email, superuser, status', 'required'),
 			array('superuser, status', 'numerical', 'integerOnly'=>true),
 			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
@@ -77,10 +77,11 @@ class User extends CActiveRecord
 	 */
 	public function relations()
 	{
-        $relations = Yii::app()->getModule('user')->relations;
-        if (!isset($relations['profile']))
-            $relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
-        return $relations;
+                $relations = Yii::app()->getModule('user')->relations;
+                
+                if (!isset($relations['profile']))
+                        $relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
+                return $relations;
 	}
 
 	/**
@@ -105,36 +106,37 @@ class User extends CActiveRecord
 		);
 	}
 	
-	public function scopes()
-    {
-        return array(
-            'active'=>array(
-                'condition'=>'status='.self::STATUS_ACTIVE,
-            ),
-            'notactive'=>array(
-                'condition'=>'status='.self::STATUS_NOACTIVE,
-            ),
-            'banned'=>array(
-                'condition'=>'status='.self::STATUS_BANNED,
-            ),
-            'superuser'=>array(
-                'condition'=>'superuser=1',
-            ),
-            'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status',
-            ),
-        );
-    }
+        public function scopes()
+        {
+                return array(
+                    'active'=>array(
+                            'condition'=>'status='.self::STATUS_ACTIVE,
+                    ),
+                    'notactive'=>array(
+                            'condition'=>'status='.self::STATUS_NOACTIVE,
+                    ),
+                    'banned'=>array(
+                            'condition'=>'status='.self::STATUS_BANNED,
+                    ),
+                    'superuser'=>array(
+                            'condition'=>'superuser=1',
+                    ),
+                    'notsafe'=>array(
+                            'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status',
+                    ),
+                );
+        }
+
+        public function defaultScope()
+        {
+                return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
+                    'alias'=>'user',
+                    'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status',
+                ));
+        }
 	
-	public function defaultScope()
-    {
-        return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
-            'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status',
-        ));
-    }
-	
-	public static function itemAlias($type,$code=NULL) {
+	public static function itemAlias($type,$code=NULL)
+        {
 		$_items = array(
 			'UserStatus' => array(
 				self::STATUS_NOACTIVE => UserModule::t('Not active'),
@@ -152,48 +154,52 @@ class User extends CActiveRecord
 			return isset($_items[$type]) ? $_items[$type] : false;
 	}
 	
-/**
-     * Retrieves a list of models based on the current search/filter conditions.
-     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-     */
-    public function search()
-    {
-        // Warning: Please modify the following code to remove attributes that
-        // should not be searched.
+        /**
+         * Retrieves a list of models based on the current search/filter conditions.
+         * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+         */
+        public function search()
+        {
+                // Warning: Please modify the following code to remove attributes that
+                // should not be searched.
 
-        $criteria=new CDbCriteria;
-        
-        $criteria->compare('id',$this->id);
-        $criteria->compare('username',$this->username,true);
-        $criteria->compare('password',$this->password);
-        $criteria->compare('email',$this->email,true);
-        $criteria->compare('activkey',$this->activkey);
-        $criteria->compare('create_at',$this->create_at);
-        $criteria->compare('lastvisit_at',$this->lastvisit_at);
-        $criteria->compare('superuser',$this->superuser);
-        $criteria->compare('status',$this->status);
+                $criteria=new CDbCriteria;
 
-        return new CActiveDataProvider(get_class($this), array(
-            'criteria'=>$criteria,
-        	'pagination'=>array(
-				'pageSize'=>Yii::app()->getModule('user')->user_page_size,
-			),
-        ));
-    }
+                $criteria->compare('id',$this->id);
+                $criteria->compare('username',$this->username,true);
+                //$criteria->compare('password',$this->password);
+                $criteria->compare('email',$this->email,true);
+                //$criteria->compare('activkey',$this->activkey);
+                $criteria->compare('create_at',$this->create_at);
+                $criteria->compare('lastvisit_at',$this->lastvisit_at);
+                $criteria->compare('superuser',$this->superuser);
+                $criteria->compare('status',$this->status);
 
-    public function getCreatetime() {
-        return strtotime($this->create_at);
-    }
+                return new CActiveDataProvider(get_class($this), array(
+                        'criteria'=>$criteria,
+                            'pagination'=>array(
+                                    'pageSize'=>Yii::app()->getModule('user')->user_page_size,
+                            ),
+                ));
+        }
 
-    public function setCreatetime($value) {
-        $this->create_at=date('Y-m-d H:i:s',$value);
-    }
+        public function getCreatetime()
+        {
+            return strtotime($this->create_at);
+        }
 
-    public function getLastvisit() {
-        return strtotime($this->lastvisit_at);
-    }
+        public function setCreatetime($value)
+        {
+            $this->create_at=date('Y-m-d H:i:s',$value);
+        }
 
-    public function setLastvisit($value) {
-        $this->lastvisit_at=date('Y-m-d H:i:s',$value);
-    }
+        public function getLastvisit()
+        {
+            return strtotime($this->lastvisit_at);
+        }
+
+        public function setLastvisit($value)
+        {
+            $this->lastvisit_at=date('Y-m-d H:i:s',$value);
+        }
 }
