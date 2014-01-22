@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Funcionarios',
+	Yii::t('app', 'Employees'),
 );
 
 $this->menu=array(
-	array('label'=>'Create Funcionario', 'url'=>array('create')),
-	array('label'=>'Manage Funcionario', 'url'=>array('admin')),
+	array('label'=>Yii::t('app', 'Create Employee'), 'url'=>array('createGeral')),
+	array('label'=>Yii::t('app', 'Manage Employees'), 'url'=>array('admin')),
 );
 ?>
 
-<h1>Funcionarios</h1>
+<h1><?php echo Yii::t('app', 'Employees'); ?></h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

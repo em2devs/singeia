@@ -17,5 +17,4 @@
 	<?php echo CHtml::encode($data->data_admissao); ?>
 	<br />
 
-
 </div>

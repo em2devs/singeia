@@ -13,7 +13,7 @@
 
 	<p class="note"><?php echo Yii::t('app','Fields with <span class="required">*</span> are required.'); ?></p>
 
-	<h1><?php echo Yii::t('app','Funcionario Register'); ?></h1>
+	<h1><?php echo Yii::t('app','Employee Register'); ?></h1>
         
 	<h2><?php echo Yii::t('app','Personal Data'); ?></h2>
         
@@ -96,11 +96,11 @@
 		<?php echo $form->textField($pessoa,'cod_titulo_eleitor',array('size'=>12,'maxlength'=>12)); ?>
 		<?php echo $form->error($pessoa,'cod_titulo_eleitor'); ?>
 	</div>
-
 	
-	<?php echo $form->errorSummary($model); ?>
-
-	<h2><?php echo Yii::t('app','Dados Funcionais'); ?></h2>
+	<h2><?php echo Yii::t('app','Employee Data'); ?></h2>
+        
+        <?php echo $form->errorSummary($model); ?>
+        
 	<div class="row">
 		<?php echo $form->labelEx($model,'registro_funcional'); ?>
 		<?php echo $form->textField($model,'registro_funcional',array('size'=>10,'maxlength'=>10)); ?>
@@ -113,8 +113,9 @@
 		<?php echo $form->error($model,'data_admissao'); ?>
 	</div>
 	
-	<h2><?php echo Yii::t('app','Endereço'); ?></h2>
-		<?php echo $form->errorSummary($endereco); ?>
+        <h2><?php echo Yii::t('app','Address'); ?></h2>
+        
+        <?php echo $form->errorSummary($endereco); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($endereco,'cep'); ?>
@@ -164,7 +165,8 @@
 		<?php echo $form->error($endereco,'uf'); ?>
 	</div>
 	
-	<h2><?php echo Yii::t('app','Telefone'); ?></h2>
+	<h2><?php echo Yii::t('app','Telephone'); ?></h2>
+        
 	<?php echo $form->errorSummary($telefone); ?>
 
 	<div class="row">
@@ -184,7 +186,6 @@
 		<?php echo $form->textField($telefone,'tipo_telefone',array('size'=>15,'maxlength'=>15)); ?>
 		<?php echo $form->error($telefone,'tipo_telefone'); ?>
 	</div>
-	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

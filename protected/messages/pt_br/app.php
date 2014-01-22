@@ -81,4 +81,13 @@ return array (
 	'Manage Professors'=>'Gerenciar Professores',
         'Professor Register'=>'Cadastro de Professor',
         'Professor Data'=>'Dados do Professor',
+        'Employees'=>'Funcionários',
+        'View Employee'=>'Visualizar Funcionários',
+        'List Employees'=>'Listar Funcionários',
+	'Create Employee'=>'Criar Funcionário',
+	'Update Employee'=>'Atualizar Funcionário',
+	'Delete Employee'=>'Deletar Funcionário',
+	'Manage Employees'=>'Gerenciar Funcionários',
+        'Employee Register'=>'Cadastro de Funcionário',
+        'Employee Data'=>'Dados do Funcionário',
 );
