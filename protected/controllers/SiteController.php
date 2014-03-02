@@ -3,12 +3,12 @@
 class SiteController extends Controller
 {
     
-//        public function filters()
-//        {
-//            return array(
-//                'rights'
-//            );
-//        }
+        public function filters()
+        {
+            return array(
+                'rights - page&view=about'
+            );
+        }
         
 	/**
 	 * Declares class-based actions.

@@ -71,7 +71,7 @@ return array(
                         'class'=>'RWebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-//                        'loginUrl'=>array('/user/login'),
+                        'loginUrl'=>array('/user/login'),
 		),
                 'authManager'=>array(
                         'class'=>'RDbAuthManager',
@@ -80,7 +80,7 @@ return array(
                         'assignmentTable' => 'tbl_rights_auth_assignment',
                         'itemTable' => 'tbl_rights_auth_item',
                         'itemChildTable' => 'tbl_rights_auth_item_child',
-                        'defaultRoles'=>array('Authenticated'),
+                        'defaultRoles'=>array('Guest'),
                 ),
 		// uncomment the following to enable URLs in path-format
 		/*
@@ -103,7 +103,7 @@ return array(
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
+			//'errorAction'=>'site/error',
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',
