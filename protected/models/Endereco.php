@@ -77,15 +77,15 @@ class Endereco extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
-			'cep' => 'Cep',
-			'tipo_endereco' => 'Tipo Endereco',
+			'cpf' => 'CPF',
+			'cep' => 'CEP',
+			'tipo_endereco' => 'Tipo de Endereço',
 			'logradouro' => 'Logradouro',
-			'numero' => 'Numero',
+			'numero' => 'Número',
 			'complemento' => 'Complemento',
 			'bairro' => 'Bairro',
 			'cidade' => 'Cidade',
-			'uf' => 'Uf',
+			'uf' => 'UF',
 		);
 	}
 

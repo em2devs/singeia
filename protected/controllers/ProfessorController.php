@@ -48,6 +48,45 @@ class ProfessorController extends Controller
 			'model'=>$model,
 		));
 	}
+        
+        /**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionCreateGeral() 
+	{
+		$model  = new Professor;
+		$pessoa = new Pessoa;
+		$endereco = new Endereco;
+		$telefone = new Telefone;
+                
+                $this->performAjaxValidation(array($model,$pessoa,$endereco,$telefone));
+                
+		if(isset($_POST['Professor']) && isset($_POST['Pessoa']) && isset($_POST['Endereco']) && isset($_POST['Telefone']))
+		{
+			$pessoa->attributes = $_POST['Pessoa'];
+			$model->attributes  = $_POST['Professor'];
+			$endereco->attributes = $_POST['Endereco'];
+			$telefone->attributes   = $_POST['Telefone'];
+			
+			$model->cpf = $pessoa->cpf;
+			$endereco->cpf = $pessoa->cpf;
+			$telefone->cpf = $pessoa->cpf;
+			
+			if($pessoa->save())
+			{
+				if($model->save() && $endereco->save() && $telefone->save())
+					$this->redirect(array('view','id'=>$model->cpf));
+			}
+		}
+
+		$this->render('createGeral',array(
+			'model'=>$model,
+			'pessoa'=>$pessoa,
+			'endereco'=>$endereco,
+			'telefone'=>$telefone,
+		));
+	}
 
 	public function actionUpdateGeral($id)
 	{
@@ -84,42 +123,6 @@ class ProfessorController extends Controller
 				'telefone'=>$telefone,
 			));
 	}
-	
-	public function actionCreateGeral() 
-	{
-		$model  = new Professor;
-		$pessoa = new Pessoa;
-		$endereco = new Endereco;
-		$telefone = new Telefone;
-                
-         $this->performAjaxValidation(array($model,$pessoa,$endereco,$telefone));
-                
-		if(isset($_POST['Professor']) && isset($_POST['Pessoa']) && isset($_POST['Endereco']) && isset($_POST['Telefone']))
-		{
-			$pessoa->attributes = $_POST['Pessoa'];
-			$model->attributes  = $_POST['Professor'];
-			$endereco->attributes = $_POST['Endereco'];
-			$telefone->attributes   = $_POST['Telefone'];
-			
-			$model->cpf = $pessoa->cpf;			
-			$endereco->cpf = $pessoa->cpf;
-			$telefone->cpf = $pessoa->cpf;
-			
-			if($pessoa->save())
-			{
-				if($model->save() && $endereco->save() && $telefone->save())
-					$this->redirect(array('view','id'=>$model->cpf));
-			}
-		}
-
-		$this->render('createGeral',array(
-			'model'=>$model,
-			'pessoa'=>$pessoa,
-			'endereco'=>$endereco,
-			'telefone'=>$telefone,
-		));
-	}
-	 
 	
 	/**
 	 * Updates a particular model.

@@ -1,6 +1,9 @@
 <?php
 /* @var $this ProfessorController */
 /* @var $model Professor */
+/* @var $pessoa Pessoa */
+/* @var $endereco Endereco */
+/* @var $telefone Telefone */
 /* @var $form CActiveForm */
 ?>
 
@@ -190,7 +193,6 @@
 		<?php echo $form->textField($telefone,'tipo_telefone',array('size'=>15,'maxlength'=>15)); ?>
 		<?php echo $form->error($telefone,'tipo_telefone'); ?>
 	</div>
-	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

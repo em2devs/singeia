@@ -89,19 +89,19 @@ class Pessoa extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
+			'cpf' => 'CPF',
 			'nome' => 'Nome',
 			'sobrenome' => 'Sobrenome',
 			'estado_civil' => 'Estado Civil',
-			'dt_nascimento' => 'Dt Nascimento',
+			'dt_nascimento' => 'Data de Nascimento',
 			'sexo' => 'Sexo',
 			'naturalidade_municipio' => 'Naturalidade Municipio',
-			'naturalidade_uf' => 'Naturalidade Uf',
+			'naturalidade_uf' => 'Naturalidade UF',
 			'nacionalidade' => 'Nacionalidade',
-			'rg' => 'Rg',
-			'data_emissao_rg' => 'Data Emissao Rg',
-			'orgao_emissor_rg' => 'Orgao Emissor Rg',
-			'cod_titulo_eleitor' => 'Cod Titulo Eleitor',
+			'rg' => 'RG',
+			'data_emissao_rg' => 'Data de Emissão do RG',
+			'orgao_emissor_rg' => 'Orgão Emissor do RG',
+			'cod_titulo_eleitor' => 'Título de Eleitor',
 		);
 	}
 
@@ -134,4 +134,22 @@ class Pessoa extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function getSexo()
+        {
+            return array(
+                'M' => 'Masculino',
+                'F' => 'Feminino',
+            );
+        }
+        
+        public function getEstadoCivil()
+        {
+            return array(
+                'Solteiro'   => 'Solteiro',
+                'Casado'     => 'Casado',
+                'Divorciado' => 'Divorciado',
+                'Viuvo'      => 'Viuvo',
+            );
+        }
 }

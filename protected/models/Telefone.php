@@ -69,10 +69,10 @@ class Telefone extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
-			'cod_area_telefone' => 'Cod Area Telefone',
-			'numero_telefone' => 'Numero Telefone',
-			'tipo_telefone' => 'Tipo Telefone',
+			'cpf' => 'CPF',
+			'cod_area_telefone' => 'Código de Área',
+			'numero_telefone' => 'Número',
+			'tipo_telefone' => 'Tipo',
 		);
 	}
 
@@ -96,4 +96,13 @@ class Telefone extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        public function getTipoTelefone()
+        {
+            return array(
+                'Casa'      => 'Casa',
+                'Trabalho'  => 'Trabalho',
+                'Celular'   => 'Celular',
+            );
+        }
 }

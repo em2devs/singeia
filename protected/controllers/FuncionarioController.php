@@ -29,6 +29,10 @@ class FuncionarioController extends Controller
 		));
 	}
 	
+        /**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
 	public function actionCreateGeral() 
 	{
 		$model  = new Funcionario;
@@ -45,7 +49,7 @@ class FuncionarioController extends Controller
 			$endereco->attributes = $_POST['Endereco'];
 			$telefone->attributes   = $_POST['Telefone'];
 			
-			$model->cpf = $pessoa->cpf;			
+			$model->cpf = $pessoa->cpf;
 			$endereco->cpf = $pessoa->cpf;
 			$telefone->cpf = $pessoa->cpf;
 			

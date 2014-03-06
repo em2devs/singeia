@@ -1,7 +1,7 @@
 <?php
 /* @var $this AlunoController */
-/* @var $pessoa Pessoa */
 /* @var $model Aluno */
+/* @var $pessoa Pessoa */
 
 $this->breadcrumbs=array(
 	Yii::t('app','Students')=>array('index'),

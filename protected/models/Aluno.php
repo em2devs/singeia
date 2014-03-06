@@ -85,20 +85,20 @@ class Aluno extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
-			'cod_matricula' => 'Cod Matricula',
-			'data_vestibular' => 'Data Vestibular',
-			'pontos_vestibular' => 'Pontos Vestibular',
-			'data_ultima_matricula' => 'Data Ultima Matricula',
-			'classificacao' => 'Classificacao',
-			'forma_ingresso' => 'Forma Ingresso',
+			'cpf' => 'CPF',
+			'cod_matricula' => 'Código de Matrícula',
+			'data_vestibular' => 'Data do Vestibular',
+			'pontos_vestibular' => 'Pontos no Vestibular',
+			'data_ultima_matricula' => 'Data da Última Matrícula',
+			'classificacao' => 'Classificação',
+			'forma_ingresso' => 'Forma de Ingresso',
 			'escolaridade' => 'Escolaridade',
-			'segundo_grau' => 'Segundo Grau',
-			'universitario' => 'Universitario',
+			'segundo_grau' => 'Segundo Grau?',
+			'universitario' => 'Universitário?',
 			'estabelecimento' => 'Estabelecimento',
 			'sede' => 'Sede',
 			'estado' => 'Estado',
-			'conclusao' => 'Conclusao',
+			'conclusao' => 'Conclusão',
 		);
 	}
 

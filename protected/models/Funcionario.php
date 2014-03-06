@@ -69,9 +69,9 @@ class Funcionario extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
+			'cpf' => 'CPF',
 			'registro_funcional' => 'Registro Funcional',
-			'data_admissao' => 'Data Admissao',
+			'data_admissao' => 'Data de Admissão',
 		);
 	}
 

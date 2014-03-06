@@ -1,6 +1,9 @@
 <?php
 /* @var $this ProfessorController */
 /* @var $model Professor */
+/* @var $pessoa Pessoa */
+/* @var $endereco Endereco */
+/* @var $telefone Telefone */
 /* @var $form CActiveForm */
 ?>
 

@@ -71,10 +71,10 @@ class Professor extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpf' => 'Cpf',
+			'cpf' => 'CPF',
 			'registro_funcional' => 'Registro Funcional',
-			'data_admissao' => 'Data Admissao',
-			'coordenador' => 'Coordenador',
+			'data_admissao' => 'Data de Admissão',
+			'coordenador' => 'Coordenador?',
 		);
 	}
 

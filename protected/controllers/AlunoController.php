@@ -49,7 +49,7 @@ class AlunoController extends Controller
 			$endereco->attributes = $_POST['Endereco'];
 			$telefone->attributes   = $_POST['Telefone'];
 			
-			$model->cpf = $pessoa->cpf;			
+			$model->cpf = $pessoa->cpf;
 			$endereco->cpf = $pessoa->cpf;
 			$telefone->cpf = $pessoa->cpf;
 			

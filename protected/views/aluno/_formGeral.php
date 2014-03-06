@@ -1,13 +1,15 @@
 <?php
 /* @var $this AlunoController */
-/* @var $pessoa Pessoa */
 /* @var $model Aluno */
+/* @var $pessoa Pessoa */
+/* @var $endereco Endereco */
+/* @var $telefone Telefone */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
-<?php $form = $this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'aluno-form',
 	'enableAjaxValidation'=>true,
 )); ?>
@@ -40,7 +42,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($pessoa,'estado_civil'); ?>
-		<?php echo $form->textField($pessoa,'estado_civil',array('size'=>10,'maxlength'=>10)); ?>
+                <?php echo $form->dropDownList($pessoa, 'estado_civil', $pessoa->getEstadoCivil()); ?>
 		<?php echo $form->error($pessoa,'estado_civil'); ?>
 	</div>
 
@@ -52,7 +54,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($pessoa,'sexo'); ?>
-		<?php echo $form->textField($pessoa,'sexo',array('size'=>1,'maxlength'=>1)); ?>
+		<?php echo $form->dropDownList($pessoa, 'sexo', $pessoa->getSexo()); ?>
 		<?php echo $form->error($pessoa,'sexo'); ?>
 	</div>
 
@@ -250,10 +252,9 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($telefone,'tipo_telefone'); ?>
-		<?php echo $form->textField($telefone,'tipo_telefone',array('size'=>15,'maxlength'=>15)); ?>
+		<?php echo $form->dropDownList($telefone, 'tipo_telefone', $telefone->getTipoTelefone()); ?>
 		<?php echo $form->error($telefone,'tipo_telefone'); ?>
 	</div>
-	
 	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

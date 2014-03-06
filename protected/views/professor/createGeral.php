@@ -1,6 +1,7 @@
 <?php
 /* @var $this ProfessorController */
 /* @var $model Professor */
+/* @var $pessoa Pessoa */
 
 $this->breadcrumbs=array(
 	Yii::t('app', 'Professors')=>array('index'),
